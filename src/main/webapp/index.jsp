@@ -39,17 +39,35 @@
             <h2>Bootstrap starter template</h2>
             <p>Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document.</p>
             <form id="formIngreso" name="f1" action="" method="post">
-                Nombre: <input type="text" name="nom" class="span2" placeholder="usuario"> <br/>
-                Clave: <input type="password" name="clave" class="span2" placeholder="contraseña"> <br/>
-                <input type="submit" value="Enviar" class="btn btn-primary">
+                <div class="control-group">
+                    Nombre:<input type="text" name="nom" class="span2" placeholder="usuario"> <br/>
+                    Clave: <input type="password" name="clave" class="span2" placeholder="contraseña"> <br/>
+                    <input type="submit" value="Enviar" class="btn btn-primary">
+                </div>
             </form>
             <script src="http://code.jquery.com/jquery.js"></script>
             <script src="public/bootstrap/js/bootstrap.min.js"></script>
             <script src="public/jvalidation/jquery.validate.min.js"></script>
+            <script src="public/jvalidation/messages_es.js"></script>
             <script>
-                $(function(){
-                    alert('Hola');
-                    
+                $(function() {
+                    $("#formIngreso").validate({
+                        rules: {
+                            nom: {required: true},
+                            clave: {required: true}
+                        },
+                        highlight: function(element) {
+                            $(element).closest('.control-group').removeClass('success').addClass('error');
+                        },
+                        success: function(element) {
+                            element
+                                    .text('OK!').addClass('valid')
+                                    .closest('.control-group').removeClass('error').addClass('success');
+                        }
+
+
+                    });
+
                 });
             </script>
         </div> <!-- /container -->

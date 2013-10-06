@@ -15,5 +15,6 @@ Any value defined here will override the pom.xml file value but is only applicab
 -->
         <netbeans.hint.j2eeVersion>1.7-web</netbeans.hint.j2eeVersion>
         <netbeans.compile.on.save>all</netbeans.compile.on.save>
+        <netbeans.deploy.on.save>false</netbeans.deploy.on.save>
     </properties>
 </project-shared-configuration>
